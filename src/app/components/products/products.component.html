@@ -1,0 +1,16 @@
+<div class="products">
+  <app-loading-state [isLoading]="isLoading"></app-loading-state>
+  <app-error-state [hasError]="hasError"></app-error-state>
+
+  <ul class="products-list">
+    <li *ngFor="let prod of products | orderBy: sort.param:sort.desc" class="products-list_item">
+      ID: {{ prod.id }}<br />
+      Name: {{ prod.name }}<br />
+      Brand: {{ prod.brand }}<br />
+      Seller: {{ prod.seller.name }}<br />
+      Price: {{ prod.price.price }}<br />
+      Shippable countries: {{ prod.shippable_countries.join(', ') }}<br />
+      Deposited since: {{ prod.deposited_on | dateSince }}
+    </li>
+  </ul>
+</div>
